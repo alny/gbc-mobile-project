@@ -2,8 +2,8 @@ import React from "react";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import HeaderText from "../../components/UI/HeaderText";
 import HeaderAvatar from "../../components/UI/HeaderAvatar";
-import RestaurantComponent from "../../components/RestaurantComponents/RestaurantComponent";
 import MapComponent from "../../components/RestaurantComponents/MapComponent";
+import { RestaurantList } from "../../components/RestaurantComponents/RestaurantList";
 
 const TopTab = createMaterialTopTabNavigator();
 
@@ -27,14 +27,14 @@ const RestaurantScreen = () => {
       }}
     >
       <TopTab.Screen name="Map" component={MapComponent} />
-      <TopTab.Screen name="List" component={RestaurantComponent} />
+      <TopTab.Screen name="List" component={RestaurantList} />
     </TopTab.Navigator>
   );
 };
 
 export const RestaurantScreenOptions = (navData) => {
   return {
-    headerTitle: false,
+    headerTitle: <HeaderText text="Restaurants" />,
     headerLeft: () => <HeaderText text="Restaurants" />,
     headerRight: () => <HeaderAvatar {...navData} />,
     headerStyle: {

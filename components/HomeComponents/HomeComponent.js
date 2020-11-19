@@ -9,7 +9,7 @@ import { MaterialCommunityIcons, AntDesign } from "@expo/vector-icons";
 import { List, Text } from "@ui-kitten/components";
 import { ShowCard } from "./ShowCard";
 import Block from "../UI/Block";
-import { RestaurantList } from "./RestaurantList";
+import { RestaurantList } from "../RestaurantComponents/RestaurantList";
 import { restaurantArrayTwo } from "../../data/restaurantsData";
 
 export const HomeComponent = (props) => {
@@ -24,7 +24,7 @@ export const HomeComponent = (props) => {
       <Block style={{ flex: 1, marginBottom: 12, marginTop: 18 }}>
         <Block row style={{ marginHorizontal: 15 }}>
           <TouchableWithoutFeedback
-            onPress={() => props.navigation.navigate("Profile")}
+            onPress={() => props.navigation.navigate("Restaurant")}
           >
             <Block
               center
@@ -59,7 +59,9 @@ export const HomeComponent = (props) => {
               </Text>
             </Block>
           </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback>
+          <TouchableWithoutFeedback
+            onPress={() => props.navigation.navigate("Restaurant")}
+          >
             <Block
               center
               middle
@@ -98,7 +100,7 @@ export const HomeComponent = (props) => {
       </Block>
       <View style={{ backgroundColor: "#f2f2f2" }}>
         <Text style={styles.headerTitle} appearance="hint">
-          Rated Restaurants
+          Highly rated Restaurants
         </Text>
         <List
           contentContainerStyle={styles.horizontalList}

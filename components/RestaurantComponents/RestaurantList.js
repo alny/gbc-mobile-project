@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, StyleSheet, Dimensions, SafeAreaView } from "react-native";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard from "../RestaurantComponents/RestaurantCard";
 import {
   RecyclerListView,
   DataProvider,

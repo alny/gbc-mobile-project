@@ -10,6 +10,9 @@ import RestaurantScreen, {
 import ProfileScreen, {
   ProfileScreenOptions,
 } from "../screens/Profile/ProfileScreen";
+import SingleRestaurantScreen, {
+  SingleRestaurantScreenOptions,
+} from "../screens/Restaurant/SingleRestaurantScreen";
 
 const Tabs = createBottomTabNavigator();
 
@@ -82,6 +85,11 @@ export const HomeNavigator = () => {
         component={HomeScreen}
         options={HomeScreenOptions}
       />
+      <HomeStackNavigator.Screen
+        name="SingleRestaurant"
+        component={SingleRestaurantScreen}
+        options={SingleRestaurantScreenOptions}
+      />
     </HomeStackNavigator.Navigator>
   );
 };
@@ -95,6 +103,11 @@ export const RestaurantNavigator = () => {
         name="Restaurant"
         component={RestaurantScreen}
         options={RestaurantScreenOptions}
+      />
+      <RestaurantStackNavigator.Screen
+        name="SingleRestaurant"
+        component={SingleRestaurantScreen}
+        options={SingleRestaurantScreenOptions}
       />
     </RestaurantStackNavigator.Navigator>
   );
