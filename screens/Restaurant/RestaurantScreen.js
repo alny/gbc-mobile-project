@@ -3,6 +3,7 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import HeaderText from "../../components/UI/HeaderText";
 import HeaderAvatar from "../../components/UI/HeaderAvatar";
 import RestaurantComponent from "../../components/RestaurantComponents/RestaurantComponent";
+import MapComponent from "../../components/RestaurantComponents/MapComponent";
 
 const TopTab = createMaterialTopTabNavigator();
 
@@ -25,8 +26,8 @@ const RestaurantScreen = () => {
         labelStyle: { fontSize: 12, fontFamily: "Poppins_700Bold" },
       }}
     >
-      <TopTab.Screen name="Student" component={RestaurantComponent} />
-      <TopTab.Screen name="More Info" component={RestaurantComponent} />
+      <TopTab.Screen name="Map" component={MapComponent} />
+      <TopTab.Screen name="List" component={RestaurantComponent} />
     </TopTab.Navigator>
   );
 };

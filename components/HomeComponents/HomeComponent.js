@@ -10,6 +10,7 @@ import { List, Text } from "@ui-kitten/components";
 import { ShowCard } from "./ShowCard";
 import Block from "../UI/Block";
 import { RestaurantList } from "./RestaurantList";
+import { restaurantArrayTwo } from "../../data/restaurantsData";
 
 export const HomeComponent = (props) => {
   const renderHorizontalTrainingItem = (info) => {
@@ -104,23 +105,7 @@ export const HomeComponent = (props) => {
           horizontal={true}
           style={{ backgroundColor: "#f2f2f2" }}
           showsHorizontalScrollIndicator={false}
-          data={[
-            {
-              id: 1,
-              image:
-                "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-            },
-            {
-              id: 2,
-              image:
-                "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80",
-            },
-            {
-              id: 3,
-              image:
-                "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-            },
-          ]}
+          data={restaurantArrayTwo}
           renderItem={renderHorizontalTrainingItem}
         />
       </View>

@@ -9,7 +9,7 @@ import {
 const HeaderAvatar = (props) => {
   return (
     <TouchableWithoutFeedback
-      onPress={() => props.navigation.navigate("About")}
+      onPress={() => props.navigation.navigate("Profile")}
     >
       <View
         style={{
