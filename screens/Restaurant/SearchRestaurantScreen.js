@@ -20,6 +20,20 @@ async function asyncForEach(array, callback) {
   }
 }
 
+let tagArray = [
+  {
+    name: "Choose Tags",
+    id: 0,
+    children: [
+      { id: 1, name: "Mexican", value: "mexican" },
+      { id: 2, name: "Italian", value: "italian" },
+      { id: 3, name: "Thai food", value: "thai food" },
+      { id: 4, name: "Vegan", value: "vegan" },
+      { id: 5, name: "Danish", value: "danish" },
+    ],
+  },
+];
+
 const SearchRestaurantScreen = (props) => {
   const styles = useStyleSheet(themedStyles);
 
@@ -28,7 +42,7 @@ const SearchRestaurantScreen = (props) => {
 
   const onSelectedTypesChange = async (selectedItems) => {
     let typesArray = [];
-    await asyncForEach(preferences[0].children, async (element, i) => {
+    await asyncForEach(tagArray[0].children, async (element, i) => {
       if (selectedItems.includes(element.id)) {
         typesArray.push({ tag: element.value });
       }
@@ -43,7 +57,7 @@ const SearchRestaurantScreen = (props) => {
         <View style={{ paddingRight: 10, paddingLeft: 10 }}>
           <SectionedMultiSelect
             IconRenderer={MaterialIcons}
-            items={[]}
+            items={tagArray}
             uniqueKey="id"
             subKey="children"
             displayKey="name"
