@@ -1,10 +1,33 @@
 import React from "react";
+import { View } from "react-native";
+import { Text } from "@ui-kitten/components";
+
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import HeaderText from "../../components/UI/HeaderText";
 import HeaderAvatar from "../../components/UI/HeaderAvatar";
 import ProfileComponent from "../../components/ProfileComponents/ProfileComponent";
 
 const TopTab = createMaterialTopTabNavigator();
+
+const AboutComponent = () => {
+  return (
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+      }}
+    >
+      <Text style={{ fontSize: 14, fontFamily: "Poppins_500Medium" }}>
+        Group:
+      </Text>
+      <Text style={{ fontSize: 14, fontFamily: "Poppins_700Bold" }}>
+        Alexander Nygaard
+      </Text>
+    </View>
+  );
+};
 
 const ProfileScreen = () => {
   return (
@@ -26,7 +49,7 @@ const ProfileScreen = () => {
       }}
     >
       <TopTab.Screen name="Settings" component={ProfileComponent} />
-      <TopTab.Screen name="More Info" component={ProfileComponent} />
+      <TopTab.Screen name="About" component={AboutComponent} />
     </TopTab.Navigator>
   );
 };

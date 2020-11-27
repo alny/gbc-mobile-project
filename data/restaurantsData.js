@@ -53,6 +53,9 @@ export const restaurantArrayTwo = [
     address: "Ymervej 21",
     city: "Copenhagen",
     rating: 3.4,
+    tags: ["thai food"],
+    latitude: 55.4035653,
+    longitude: 12.3847541,
   },
   {
     id: 2,
@@ -63,6 +66,9 @@ export const restaurantArrayTwo = [
     desc: "All kind of pizzas, you can even choose your own toppings",
     city: "Copenhagen",
     rating: 4.7,
+    tags: ["italian"],
+    latitude: 55.6035653,
+    longitude: 12.5847541,
   },
   {
     id: 3,
@@ -72,6 +78,9 @@ export const restaurantArrayTwo = [
     address: "Opensboulevard 6",
     desc: "Spicy mexican food - tacos, burittos etc.",
     city: "Copenhagen",
+    tags: ["mexican"],
     rating: 5.0,
+    latitude: 55.7116752,
+    longitude: 12.5847541,
   },
 ];

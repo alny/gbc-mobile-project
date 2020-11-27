@@ -13,6 +13,9 @@ import ProfileScreen, {
 import SingleRestaurantScreen, {
   SingleRestaurantScreenOptions,
 } from "../screens/Restaurant/SingleRestaurantScreen";
+import SearchRestaurantScreen, {
+  SearchRestaurantScreenOptions,
+} from "../screens/Restaurant/SearchRestaurantScreen";
 
 const Tabs = createBottomTabNavigator();
 
@@ -108,6 +111,11 @@ export const RestaurantNavigator = () => {
         name="SingleRestaurant"
         component={SingleRestaurantScreen}
         options={SingleRestaurantScreenOptions}
+      />
+      <RestaurantStackNavigator.Screen
+        name="SearchRestaurant"
+        component={SearchRestaurantScreen}
+        options={SearchRestaurantScreenOptions}
       />
     </RestaurantStackNavigator.Navigator>
   );

@@ -73,7 +73,7 @@ export const MapComponent = (props) => {
       <FAB
         buttonColor="#0c69a6"
         iconTextColor="#FFFFFF"
-        onClickAction={() => props.navigation.navigate("Search")}
+        onClickAction={() => props.navigation.navigate("SearchRestaurant")}
         iconTextComponent={
           <FontAwesome name="search" size={24} color="black" />
         }

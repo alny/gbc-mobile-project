@@ -4,6 +4,7 @@ import {
   ScrollView,
   View,
   Modal,
+  Share,
   TouchableWithoutFeedback,
 } from "react-native";
 import {
@@ -17,9 +18,9 @@ import {
 import { ImageOverlay } from "../../../UI/ImageOverlay";
 import ImageViewer from "react-native-image-zoom-viewer";
 import { Rating } from "../Ratings/Rating";
+import RateModal from "../../RateModal";
 
 const Restaurant = (props) => {
-  console.log("props:", props.route.params.restaurant);
   const {
     id,
     name,
@@ -27,14 +28,15 @@ const Restaurant = (props) => {
     desc,
     city,
     address,
+    tags,
   } = props.route.params.restaurant;
-  const [visible, setVisible] = useState(false);
 
+  const [visible, setVisible] = useState(false);
   const styles = useStyleSheet(themedStyles);
 
   const renderImageItem = (info) => {
     return (
-      <TouchableWithoutFeedback onPress={() => setVisible(true)}>
+      <TouchableWithoutFeedback>
         <Image
           style={styles.imageItem}
           source={{
@@ -45,48 +47,97 @@ const Restaurant = (props) => {
     );
   };
 
-  const renderBookingFooter = () => (
-    <View
-      style={{
-        paddingHorizontal: 10,
-        padding: 20,
-      }}
-    >
-      <Text style={styles.sectionLabel} category="s1">
-        About Restaurant:
-      </Text>
-      <Text style={styles.description} appearance="hint">
-        {desc}
-      </Text>
+  const renderBookingFooter = () => {
+    const onShare = async () => {
+      try {
+        const result = await Share.share({
+          message: "Share restaurarnt on Email, Facebook or Twitter",
+        });
+        if (result.action === Share.sharedAction) {
+          if (result.activityType) {
+            // shared with activity type of result.activityType
+          } else {
+            // shared
+          }
+        } else if (result.action === Share.dismissedAction) {
+          // dismissed
+        }
+      } catch (error) {
+        alert(error.message);
+      }
+    };
 
-      <>
-        <Text
-          style={{
-            paddingHorizontal: 12,
-            padding: 5,
-            fontFamily: "Poppins_500Medium",
-          }}
-          category="s1"
-        >
-          Tags:
+    return (
+      <View
+        style={{
+          paddingHorizontal: 10,
+          padding: 20,
+        }}
+      >
+        <Text style={styles.sectionLabel} category="s1">
+          About Restaurant:
         </Text>
-        <View style={styles.detailsList}>
-          <Button appearance="outline" style={styles.detailItem} size="tiny">
+        <Text style={styles.description} appearance="hint">
+          {desc}
+        </Text>
+
+        {tags && tags.length !== 0 && (
+          <>
             <Text
               style={{
-                textTransform: "capitalize",
-                fontFamily: "Poppins_400Regular",
-                color: "#4a5568",
-                fontSize: 11,
+                paddingHorizontal: 12,
+                padding: 5,
+                fontFamily: "Poppins_500Medium",
               }}
+              category="s1"
             >
-              Type
+              Tags:
             </Text>
-          </Button>
-        </View>
-      </>
-    </View>
-  );
+            <View style={styles.detailsList}>
+              {tags.map((tag, i) => {
+                return (
+                  <Button
+                    key={i}
+                    appearance="outline"
+                    style={styles.detailItem}
+                    size="tiny"
+                  >
+                    <Text
+                      style={{
+                        textTransform: "capitalize",
+                        fontFamily: "Poppins_400Regular",
+                        color: "#4a5568",
+                        fontSize: 11,
+                      }}
+                    >
+                      {tag}
+                    </Text>
+                  </Button>
+                );
+              })}
+            </View>
+            <Button
+              onPress={onShare}
+              appearance="outline"
+              style={styles.detailItem}
+              size="tiny"
+            >
+              <Text
+                style={{
+                  textTransform: "capitalize",
+                  fontFamily: "Poppins_400Regular",
+                  color: "#4a5568",
+                  fontSize: 11,
+                }}
+              >
+                Share
+              </Text>
+            </Button>
+          </>
+        )}
+      </View>
+    );
+  };
 
   return (
     <ScrollView style={styles.container}>
@@ -103,6 +154,21 @@ const Restaurant = (props) => {
           disabled={true}
           footer={renderBookingFooter}
         >
+          <Button
+            onPress={() => setVisible(true)}
+            size="small"
+            style={styles.bookButton}
+          >
+            <Text
+              style={{
+                color: "#fff",
+                fontSize: 12,
+                fontFamily: "Poppins_700Bold",
+              }}
+            >
+              Rate Restaurant
+            </Text>
+          </Button>
           <Text style={styles.title} category="h6">
             {name}
           </Text>
@@ -132,6 +198,13 @@ const Restaurant = (props) => {
           renderItem={renderImageItem}
         />
       </>
+      {visible && (
+        <RateModal
+          {...props}
+          visible={visible}
+          showModal={() => setVisible(false)}
+        />
+      )}
     </ScrollView>
   );
 };
@@ -164,8 +237,8 @@ const themedStyles = StyleService.create({
     position: "absolute",
     backgroundColor: "#3ca452",
     borderColor: "#3ca452",
-    bottom: 24,
-    right: 24,
+    bottom: 75,
+    right: 15,
   },
   detailsList: {
     flexDirection: "row",

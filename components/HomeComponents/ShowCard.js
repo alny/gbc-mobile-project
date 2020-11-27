@@ -10,14 +10,17 @@ export const ShowCard = (props) => {
     <TouchableOpacity
       key={props.restaurant.item.id}
       style={{ height: "100%" }}
-      onPress={() =>
-        props.navigation.navigate("SingleRestaurant", {
-          restaurant: props.restaurant.item,
-        })
-      }
       activeOpacity={0.8}
     >
-      <Card {...cardProps} style={[styles.container, style]}>
+      <Card
+        onPress={() =>
+          props.navigation.navigate("SingleRestaurant", {
+            restaurant: props.restaurant.item,
+          })
+        }
+        {...cardProps}
+        style={[styles.container, style]}
+      >
         <ImageOverlay
           style={styles.image}
           source={{

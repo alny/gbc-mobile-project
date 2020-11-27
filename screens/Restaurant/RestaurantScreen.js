@@ -34,7 +34,7 @@ const RestaurantScreen = () => {
 
 export const RestaurantScreenOptions = (navData) => {
   return {
-    headerTitle: <HeaderText text="Restaurants" />,
+    headerTitle: false,
     headerLeft: () => <HeaderText text="Restaurants" />,
     headerRight: () => <HeaderAvatar {...navData} />,
     headerStyle: {

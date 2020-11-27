@@ -13,7 +13,15 @@ const { width } = Dimensions.get("window");
 
 const RestaurantCard = (props) => {
   return (
-    <TouchableOpacity style={{ height: "100%" }} activeOpacity={0.8}>
+    <TouchableOpacity
+      onPress={() =>
+        props.navigation.navigate("SingleRestaurant", {
+          restaurant: props.restaurant,
+        })
+      }
+      style={{ height: "100%" }}
+      activeOpacity={0.8}
+    >
       <View style={styles.camping}>
         <ImageBackground
           style={styles.campingImage}
