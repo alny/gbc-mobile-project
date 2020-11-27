@@ -78,7 +78,7 @@ const SearchRestaurantScreen = (props) => {
       </Layout>
       <Divider />
       <Button
-        onPress={() => console.log("Search")}
+        onPress={() => props.navigation.goBack()}
         style={styles.addButton}
         size="giant"
       >

@@ -11,9 +11,9 @@ export const Rating = (props) => {
         }}
       />
       <View style={styles.commentAuthorContainer}>
-        <Text category="s2">"Ikke Angivet</Text>
+        <Text category="s2">Alex</Text>
         <Text appearance="hint" category="c1">
-          2 hours ago
+          2 secs ago
         </Text>
       </View>
       <Button style={styles.iconButton} appearance="ghost" status="basic" />
@@ -29,7 +29,7 @@ export const Rating = (props) => {
           fontSize: 13,
         }}
       >
-        Hello
+        5/5
       </Text>
     </Card>
   );
