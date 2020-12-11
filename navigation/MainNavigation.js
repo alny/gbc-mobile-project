@@ -16,6 +16,9 @@ import SingleRestaurantScreen, {
 import SearchRestaurantScreen, {
   SearchRestaurantScreenOptions,
 } from "../screens/Restaurant/SearchRestaurantScreen";
+import EditProfileScreen, {
+  EditProfileScreenOptions,
+} from "../screens/Profile/EditProfileScreen";
 
 const Tabs = createBottomTabNavigator();
 
@@ -130,6 +133,11 @@ export const ProfileNavigator = () => {
         name="Profile"
         component={ProfileScreen}
         options={ProfileScreenOptions}
+      />
+      <ProfileStackNavigator.Screen
+        name="EditProfile"
+        component={EditProfileScreen}
+        options={EditProfileScreenOptions}
       />
     </ProfileStackNavigator.Navigator>
   );

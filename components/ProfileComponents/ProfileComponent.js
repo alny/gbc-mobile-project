@@ -9,7 +9,6 @@ import {
 } from "@ui-kitten/components";
 import { ProfileSetting } from "./Settings";
 import { ProfileAvatar } from "./Avatar";
-import Toast from "react-native-toast-message";
 
 export default (props) => {
   const styles = useStyleSheet(themedStyles);
@@ -49,7 +48,12 @@ export default (props) => {
         />
         <ProfileSetting style={styles.setting} hint="Mobil" value={email} />
 
-        <Button style={styles.doneButton}>Edit Profile</Button>
+        <Button
+          onPress={() => props.navigation.navigate("EditProfile")}
+          style={styles.doneButton}
+        >
+          Edit Profile
+        </Button>
       </ScrollView>
     </>
   );
