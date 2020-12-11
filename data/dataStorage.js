@@ -1,4 +1,4 @@
-export const restaurantArrayOne = [
+export const dataStore = [
   {
     id: 1,
     image:

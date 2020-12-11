@@ -10,7 +10,7 @@ import { List, Text } from "@ui-kitten/components";
 import { ShowCard } from "./ShowCard";
 import Block from "../UI/Block";
 import { RestaurantList } from "../RestaurantComponents/RestaurantList";
-import { restaurantArrayTwo } from "../../data/restaurantsData";
+import { restaurantArrayTwo } from "../../data/dataStorage";
 
 export const HomeComponent = (props) => {
   const renderHorizontalTrainingItem = (info) => {

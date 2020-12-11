@@ -19,6 +19,9 @@ import SearchRestaurantScreen, {
 import EditProfileScreen, {
   EditProfileScreenOptions,
 } from "../screens/Profile/EditProfileScreen";
+import EditRestaurantScreen, {
+  EditRestaurantScreenOptions,
+} from "../screens/Restaurant/EditRestaurantScreen";
 
 const Tabs = createBottomTabNavigator();
 
@@ -119,6 +122,11 @@ export const RestaurantNavigator = () => {
         name="SearchRestaurant"
         component={SearchRestaurantScreen}
         options={SearchRestaurantScreenOptions}
+      />
+      <RestaurantStackNavigator.Screen
+        name="EditRestaurant"
+        component={EditRestaurantScreen}
+        options={EditRestaurantScreenOptions}
       />
     </RestaurantStackNavigator.Navigator>
   );

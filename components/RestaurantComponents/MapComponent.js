@@ -6,7 +6,7 @@ import { FontAwesome, MaterialIcons } from "@expo/vector-icons";
 import * as Location from "expo-location";
 import * as Permissions from "expo-permissions";
 import FAB from "react-native-fab";
-import { restaurantArrayOne } from "../../data/restaurantsData";
+import { dataStore } from "../../data/dataStorage";
 
 export const MapComponent = (props) => {
   const [currentLocation, setCurrentLocation] = useState({
@@ -58,7 +58,7 @@ export const MapComponent = (props) => {
         style={styles.mapStyle}
         tracksViewChanges={true}
       >
-        {restaurantArrayOne.map((restaurant) => {
+        {dataStore.map((restaurant) => {
           return (
             <Marker
               key={restaurant.id}

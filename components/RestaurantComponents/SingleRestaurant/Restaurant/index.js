@@ -133,6 +133,27 @@ const Restaurant = (props) => {
                 Share
               </Text>
             </Button>
+            <Button
+              onPress={() =>
+                props.navigation.navigate("EditRestaurant", {
+                  restaurant: props.route.params.restaurant,
+                })
+              }
+              appearance="outline"
+              style={styles.detailItem}
+              size="tiny"
+            >
+              <Text
+                style={{
+                  textTransform: "capitalize",
+                  fontFamily: "Poppins_400Regular",
+                  color: "#4a5568",
+                  fontSize: 11,
+                }}
+              >
+                Edit
+              </Text>
+            </Button>
           </>
         )}
       </View>

@@ -6,7 +6,7 @@ import {
   DataProvider,
   LayoutProvider,
 } from "recyclerlistview";
-import { restaurantArrayOne } from "../../data/restaurantsData";
+import { dataStore } from "../../data/dataStorage";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
@@ -21,7 +21,7 @@ export const RestaurantList = (props) => {
         <RecyclerListView
           rowRenderer={rowRenderer}
           dataProvider={new DataProvider((r1, r2) => r1 !== r2).cloneWithRows(
-            restaurantArrayOne
+            dataStore
           )}
           layoutProvider={
             new LayoutProvider(
