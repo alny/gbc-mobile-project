@@ -1,10 +1,10 @@
 import React from "react";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, FontAwesome5 } from "@expo/vector-icons";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import HeaderButton from "../../components/UI/HeaderButton";
 import Restaurant from "../../components/RestaurantComponents/SingleRestaurant/Restaurant";
 import HeaderText from "../../components/UI/HeaderText";
-import HeaderEmpty from "../../components/UI/HeaderEmpty";
+import * as Linking from "expo-linking";
 
 const SingleRestaurantScreen = (props) => {
   return <Restaurant {...props} />;
@@ -14,12 +14,17 @@ export const SingleRestaurantScreenOptions = (navData) => {
   return {
     headerTitle: () => <HeaderText text="Restaurant" />,
     headerRight: () => (
-      <HeaderButtons HeaderButtonComponent={HeaderEmpty}>
+      <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
-          IconComponent={Ionicons}
+          onPress={() =>
+            Linking.openURL(
+              "https://www.google.com/maps/@56.585444,10.507813,6z"
+            )
+          }
+          IconComponent={FontAwesome5}
           iconSize={22}
-          title="Back"
-          iconName={"ios-arrow-back"}
+          title="route"
+          iconName={"route"}
         />
       </HeaderButtons>
     ),
